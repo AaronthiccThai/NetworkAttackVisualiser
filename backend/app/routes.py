@@ -8,12 +8,10 @@ Routes
     Port scanning
     DNS tunneling 
     ...
-  Detect
-    detect
-    alert
-    /packets/live w
-  
 
+  
+The project is to mimic network attacks, and showcase to users what it looks like
+interactive packet visualiser, using generated packets rather than actual packets - 
 """
 simulate_routes = Blueprint('simulate', __name__)
 main_routes = Blueprint('main', __name__)
@@ -61,7 +59,7 @@ def simulate_dns_tunnel():
     src_ip = request.json.get('src_ip', '172.16.0.2')
     dst_ip = request.json.get('dst_ip', '8.8.8.8')
     domains = [
-        "data1.tunnel.attacker.com",
+        "data.tunnel.attacker.com",
         "cmd.tunnel.attacker.com",
         "response.tunnel.attacker.com"
     ]
@@ -73,18 +71,3 @@ def simulate_dns_tunnel():
 
     return jsonify({"status": "DNS tunnel simulated", "packets": packets}), 200
 
-# --- Detect Routes ---
-@main_routes.route('/main/detect', methods=['GET'])
-def detect():
-    # logic to run detection algorithms
-    return jsonify({"status": "Detection running"}), 200
-
-@main_routes.route('/main/alert', methods=['GET'])
-def get_alerts():
-    # return detected alerts
-    return jsonify({"alerts": []}), 200
-
-@main_routes.route('/main/packets_live', methods=['GET'])
-def live_packets():
-    # stream or return live packet data
-    return jsonify({"packets": []}), 200
