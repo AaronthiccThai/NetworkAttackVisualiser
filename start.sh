@@ -1,8 +1,14 @@
 #!/bin/bash
 
+echo "Installing backend dependencies..."
+(cd backend && pip install Flask flask-cors)
+
+
 # Start backend
 echo "Starting backend..."
 (cd backend && python3 run.py) &
+
+
 
 echo "Installing dependences..."
 (cd frontend 
