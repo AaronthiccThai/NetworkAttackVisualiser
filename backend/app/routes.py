@@ -54,6 +54,7 @@ def simulate_port_scan():
 
     return jsonify({"status": "Port scan simulated", "packets": packets}), 200
 
+# Dont need this i think
 @simulate_routes.route('/simulate/dns-tunnel', methods=['POST'])
 def simulate_dns_tunnel():
     src_ip = request.json.get('src_ip', '172.16.0.2')
