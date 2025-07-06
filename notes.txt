@@ -1,0 +1,17 @@
+DNS Tunneling
+- DNS tunneling is a method of hiding data or commands inside DNS queries/responses to bypass firewalls
+- To simulate we cna do smth like:
+1. Victim malware → sends encoded DNS query → 
+2. Trusted DNS server (e.g. 8.8.8.8) →
+  Since the server doesn't know the answer, it ask root DNS server, where it ask the evil domain
+3. Forwarded to evil-domain.com’s name server (attacker controlled) →
+4. Attacker decodes query & sends DNS response with command →
+5. Malware receives command via DNS response →
+6. Malware executes and repeats (covert channel established)
+
+Each of these are a 'block' in frontend
+
+SYNFlood
+-A SYN flood is a type of Denial of Service (DoS) attack that overwhelms a server by sending many half-open TCP connections.
+PortScan
+- A port scan is a technique used to probe a server or network host for open ports and discover which services are running.

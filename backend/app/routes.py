@@ -59,9 +59,9 @@ def simulate_dns_tunnel():
     src_ip = request.json.get('src_ip', '172.16.0.2')
     dst_ip = request.json.get('dst_ip', '8.8.8.8')
     domains = [
-        "data.tunnel.attacker.com",
-        "cmd.tunnel.attacker.com",
-        "response.tunnel.attacker.com"
+        "evil.tunnel.attacker.com",
+        "veryevil.tunnel.attacker.com",
+        "123.tunnel.attacker.com"
     ]
     packets = []
 

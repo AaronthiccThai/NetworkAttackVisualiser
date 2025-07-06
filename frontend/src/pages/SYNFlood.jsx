@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer} from 'recharts';
 
 const SYNFlood = () => {
   const [packets, setPackets] = useState([])
@@ -10,13 +10,13 @@ const SYNFlood = () => {
   const generateMimicData = () => {
     const fullData = []
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
       fullData.push({ time: i, connections: Math.floor(Math.random() * 3) + 2 })
     }
-    for (let i = 20; i < 90; i++) {
+    for (let i = 5; i < 40; i++) {
       fullData.push({ time: i, connections: Math.floor(Math.random() * 5) + 17 })
     }
-    for (let i = 90; i < 120; i++) {
+    for (let i = 50; i < 60; i++) {
       fullData.push({ time: i, connections: Math.floor(Math.random() * 3) + 2 })
     }
 
@@ -69,6 +69,7 @@ const SYNFlood = () => {
     setServerConnections([])
     setConnectionData([])
   }
+
   return (
   <>
     <div className="w-full text-center my-4">
@@ -83,8 +84,12 @@ const SYNFlood = () => {
         className="ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded shadow"
       >
         🧹 Clear
-      </button>
+      </button>   
+      <p className="text-sm text-gray-600 mt-2 italic">
+        Let the simulation run completely before resetting to ensure accurate results.
+      </p>      
     </div>
+
     <div className="grid md:grid-cols-3 gap-6">
       <div className="bg-white p-4 rounded shadow h-96 overflow-y-auto">
         <h2 className="text-xl font-semibold mb-2 text-gray-700">📦 Packets</h2>
@@ -115,13 +120,20 @@ const SYNFlood = () => {
           ))}
         </ul>
       </div>
-      <LineChart width={600} height={300} data={connectionData}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="time" />
-        <YAxis domain={[0, 25]} />
-        <Tooltip />
-        <Line type="monotone" dataKey="connections" stroke="#3182ce" strokeWidth={2} dot={false} />
-      </LineChart>      
+
+      <div className="bg-white p-4 rounded shadow col-span-full h-80">
+        <h2 className="text-xl font-semibold mb-2 text-gray-700">📈 Connections Over Time</h2>
+        <ResponsiveContainer width="80%" height="100%">
+          <LineChart data={connectionData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="time" />
+            <YAxis domain={[0, 25]} />
+            <Tooltip />
+            <Line type="monotone" dataKey="connections" stroke="#3182ce" strokeWidth={2} dot={false} />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>  
+
       <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-4 mb-4">
         <div>
           <p className="font-bold">What is a SYN?</p>
