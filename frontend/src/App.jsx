@@ -4,6 +4,7 @@ import SYNFlood from './pages/SYNFlood'
 import Navbar from './pages/Navbar'
 import './index.css'
 import DNSTunnel from './pages/DNSTunnel'
+import PortScan from './pages/PortScan'
 function App() {
   return (
     <Router>
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/synflood" element={<SYNFlood />} />
         <Route path="/dnstunnel" element={<DNSTunnel/>} />
+        <Route path="/portscan" element={<PortScan/>} />
       </Routes>
     </Router>
   )

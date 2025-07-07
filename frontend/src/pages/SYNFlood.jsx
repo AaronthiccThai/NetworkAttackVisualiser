@@ -36,7 +36,6 @@ const SYNFlood = () => {
     const res = await fetch("http://localhost:5000/simulate/syn-flood", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({})
     })
     const data = await res.json()
     const synPackets = data.packets

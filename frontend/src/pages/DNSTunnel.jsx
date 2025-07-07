@@ -5,27 +5,27 @@ const DNSTunnel = () => {
   const [currentStep, setCurrentStep] = useState(-1)
   const [animationInterval, setAnimationInterval] = useState(null)
   const [hoveredIndex, setHoveredIndex] = useState(null)
-const stepMessages = [
-  `🧑‍💻 The attacker registers a seemingly harmless domain like evil.tunnel.attacker.com.
-  This domain is set up to covertly tunnel data using DNS queries. 
-  This step lays the groundwork for evading security systems by hiding in normal-looking traffic.`,
+  const stepMessages = [
+    `🧑‍💻 The attacker registers a seemingly harmless domain like evil.tunnel.attacker.com.
+    This domain is set up to covertly tunnel data using DNS queries. 
+    This step lays the groundwork for evading security systems by hiding in normal-looking traffic.`,
 
-  `🌐 The attacker crafts a DNS query to the evil domain. 
-    This query contains hidden or encoded data meant to reach the attacker's command server. 
-    It looks like a regular DNS request, which most systems don’t block.`,
+    `🌐 The attacker crafts a DNS query to the evil domain. 
+      This query contains hidden or encoded data meant to reach the attacker's command server. 
+      It looks like a regular DNS request, which most systems don’t block.`,
 
-  `✅ The trusted DNS server receives the query and, unaware of its malicious intent, resolves it like any other domain. 
-    Because it's doing its job, it forwards the request through normal DNS resolution chains.`,
+    `✅ The trusted DNS server receives the query and, unaware of its malicious intent, resolves it like any other domain. 
+      Because it's doing its job, it forwards the request through normal DNS resolution chains.`,
 
-  `🧱 The firewall sees traffic coming from a trusted DNS server and allows it to pass. 
-    Since DNS is a common, allowed protocol, no alarms are triggered. This is how DNS tunneling bypasses most firewalls undetected.`,
+    `🧱 The firewall sees traffic coming from a trusted DNS server and allows it to pass. 
+      Since DNS is a common, allowed protocol, no alarms are triggered. This is how DNS tunneling bypasses most firewalls undetected.`,
 
-  `☁️ The attacker's Command & Control server receives the DNS query and decodes the hidden message. 
-    It may respond with a DNS reply that also contains embedded commands to control the victim's system.`,
+    `☁️ The attacker's Command & Control server receives the DNS query and decodes the hidden message. 
+      It may respond with a DNS reply that also contains embedded commands to control the victim's system.`,
 
-  `🧍 The victim device receives instructions from the attacker's server (via DNS replies). 
-    This could include actions like data exfiltration or executing payloads — all hidden within allowed DNS traffic.`
-];
+    `🧍 The victim device receives instructions from the attacker's server (via DNS replies). 
+      This could include actions like data exfiltration or executing payloads — all hidden within allowed DNS traffic.`
+  ];
 
   const sectionInfo = [
     "Attacker would be someone like a hacker",
@@ -42,7 +42,6 @@ const stepMessages = [
     const res = await fetch("http://localhost:5000/simulate/dns-tunnel", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({})
     })
 
     const data = await res.json()
