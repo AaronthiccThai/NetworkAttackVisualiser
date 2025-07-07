@@ -45,7 +45,7 @@ def simulate_syn_flood():
 def simulate_port_scan():
     src_ip = request.json.get('src_ip', '10.0.0.5')
     dst_ip = request.json.get('dst_ip', '10.0.0.1')
-    ports = [21, 22, 23, 80, 443]
+    ports = [21, 22, 23, 80, 1234]
     packets = []
 
     for port in ports:

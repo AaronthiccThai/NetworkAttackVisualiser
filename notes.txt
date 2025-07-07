@@ -15,3 +15,7 @@ SYNFlood
 -A SYN flood is a type of Denial of Service (DoS) attack that overwhelms a server by sending many half-open TCP connections.
 PortScan
 - A port scan is a technique used to probe a server or network host for open ports and discover which services are running.
+
+Potential features:
+pause feature inside each page
+Add prevention methods inside each page
