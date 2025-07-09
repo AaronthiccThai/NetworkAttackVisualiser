@@ -55,15 +55,38 @@ const PortScan = () => {
           <p>
             It is a process of probing a computer network to determine which ports are open and potentially accepting connections.
             It involves sending packets to multiple ports on a target system and then analysing its response to identify open, closed or filtered ports.
-
           </p>
-          </div>
+          <p className="mt-2">
+            Each port can respond in one of the following ways:
+          </p>
+          <ul className="list-disc list-inside ml-4">
+            <li>
+              <strong>Open:</strong> The port is active and accepting connections.
+              This means a service (like a web server or database) is running and reachable. Attackers may target these for vulnerabilities.
+            </li>
+            <li>
+              <strong>Closed:</strong> The port is accessible but no service is listening on it. 
+              It confirms the system is reachable, but that specific port isn’t currently in use.
+            </li>
+            <li>
+              <strong>Filtered:</strong> The port appears blocked by a firewall or security device. 
+              The scanner receives no response or an error, making it hard to tell whether the port is open or closed.
+            </li>
+          </ul>
+          <p className="mt-2">
+            Port scanning is commonly used by security professionals to identify and secure vulnerable entry points, 
+            but it is also used by attackers during the reconnaissance phase of a cyberattack.
+          </p>
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 mt-6">
         {/* Attacker Info */}
         <div className="w-full text-center content-center">
           <h2 id="attacker" className="text-xl font-bold mb-2 inline-block" >🧑‍💻 Attacker</h2>
           <p>Source IP: 10.0.0.5</p>
+          <p className="text-sm text-gray-600 mt-2 italic">
+            Let the simulation run completely before resetting to ensure accurate results.
+          </p>            
           <button
             onClick={simulatePortScan}
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow mt-4"

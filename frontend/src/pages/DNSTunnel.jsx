@@ -72,6 +72,34 @@ const DNSTunnel = () => {
   // Idea is to have different sections, have a packet travel through each section to simulate
   return (
     <>
+      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-4 mb-4">
+        <div>
+          <p className="font-bold">What is DNS tunneling?</p>
+          <p>
+            DNS tunneling is a method of hiding data or commands inside DNS queries/responses to bypass firewalls. 
+            Hackers hide secret messages inside these queries and replies, like slipping hidden notes inside a phone call. 
+            Because DNS traffic is usually trusted and not blocked by firewalls, attackers can use it to receive commands from a remote server
+            and send stolen data out of a network.  
+          </p>
+        </div>
+        <div>
+          <p className="font-bold">What is a DNS?</p>
+          <p>
+            DNS stands for Domain Name System. It translates human friendly website names such as google.com into IP addresses like 192.0.2.1
+            that computers use to locate and connect with each other.
+          </p>
+        </div>       
+        <div>
+          <p className="font-bold">How can DNS tunneling be prevented?</p>
+          <p>
+            Preventing DNS tunneling can be challenging as it is possible to flag a legitimate system as dangerous (false positive). DNS tunneling detection
+            relies on traffic patterns and heuristics, such as looking for long sub domains or high volume of DNS requests. Howevever, legitimate
+            systems such as antivirus softwares or security tools can trigger these same behaviours. 
+          </p>
+  
+        </div>
+
+      </div>    
       <div className="w-full text-center my-4">
         <button
           onClick={simulateDNSTunnel}

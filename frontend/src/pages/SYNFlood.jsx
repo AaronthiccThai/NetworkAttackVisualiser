@@ -9,7 +9,7 @@ const SYNFlood = () => {
 
   const generateMimicData = () => {
     const fullData = []
-
+    // MAGIC NUMBERS GOOD CODING PRACTICE IS TO INITIALISE
     for (let i = 0; i < 5; i++) {
       fullData.push({ time: i, connections: Math.floor(Math.random() * 3) + 2 })
     }
@@ -71,6 +71,38 @@ const SYNFlood = () => {
 
   return (
   <>
+      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-4 mb-4">
+        <div>
+          <p className="font-bold">What is a SYN?</p>
+          <p>
+            A <strong>SYN</strong> (synchronize) packet is the first step in establishing a TCP connection. 
+            The client sends it to the server to say: “I want to start a conversation.”
+          </p>
+        </div>
+
+        <div>
+          <p className="font-bold">What is a SYN-ACK?</p>
+          <p>
+            A <strong>SYN-ACK</strong> is the server’s reply to the client’s SYN. 
+            It acknowledges the request and sends back its own SYN: “Got it. I’m ready to talk too.”
+          </p>
+        </div>
+
+        <div>
+          <p className="font-bold">What is an ACK?</p>
+          <p>
+            An <strong>ACK</strong> (acknowledgment) is the final step. 
+            The client replies with this to confirm the handshake: “Cool, we’re connected now.”
+          </p>
+        </div>
+        <p className="font-bold">What is a SYN Flood?</p>
+        <ul className="list-disc list-inside text-sm">
+          <li>It’s a type of DoS attack that sends many SYN requests to a server.</li>
+          <li>The attacker never completes the handshake, leaving connections "half-open".</li>
+          <li>This exhausts server resources, making it unavailable to legitimate users.</li>
+          <li>It is like leaving a person on red when they were conversing with you</li>
+        </ul>
+      </div>    
     <div className="w-full text-center my-4">
       <button
         onClick={simulateSYNFloodVisual}
@@ -133,38 +165,7 @@ const SYNFlood = () => {
         </ResponsiveContainer>
       </div>  
 
-      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-4 mb-4">
-        <div>
-          <p className="font-bold">What is a SYN?</p>
-          <p>
-            A <strong>SYN</strong> (synchronize) packet is the first step in establishing a TCP connection. 
-            The client sends it to the server to say: “I want to start a conversation.”
-          </p>
-        </div>
-
-        <div>
-          <p className="font-bold">What is a SYN-ACK?</p>
-          <p>
-            A <strong>SYN-ACK</strong> is the server’s reply to the client’s SYN. 
-            It acknowledges the request and sends back its own SYN: “Got it. I’m ready to talk too.”
-          </p>
-        </div>
-
-        <div>
-          <p className="font-bold">What is an ACK?</p>
-          <p>
-            An <strong>ACK</strong> (acknowledgment) is the final step. 
-            The client replies with this to confirm the handshake: “Cool, we’re connected now.”
-          </p>
-        </div>
-        <p className="font-bold">What is a SYN Flood?</p>
-        <ul className="list-disc list-inside text-sm">
-          <li>It’s a type of DoS attack that sends many SYN requests to a server.</li>
-          <li>The attacker never completes the handshake, leaving connections "half-open".</li>
-          <li>This exhausts server resources, making it unavailable to legitimate users.</li>
-          <li>It is like leaving a person on red when they were conversing with you</li>
-        </ul>
-      </div>      
+    
     </div>    
   </>    
   )
