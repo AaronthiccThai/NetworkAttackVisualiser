@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState  } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer} from 'recharts';
 
 const SYNFlood = () => {
@@ -13,10 +13,10 @@ const SYNFlood = () => {
     for (let i = 0; i < 5; i++) {
       fullData.push({ time: i, connections: Math.floor(Math.random() * 3) + 2 })
     }
-    for (let i = 5; i < 40; i++) {
+    for (let i = 5; i < 50; i++) {
       fullData.push({ time: i, connections: Math.floor(Math.random() * 5) + 17 })
     }
-    for (let i = 50; i < 60; i++) {
+    for (let i = 40 ; i < 60; i++) {
       fullData.push({ time: i, connections: Math.floor(Math.random() * 3) + 2 })
     }
 
@@ -25,7 +25,7 @@ const SYNFlood = () => {
       setConnectionData(prev => [...(prev || []), fullData[index]])
       index++
       if (index >= fullData.length) clearInterval(interval)
-    }, 200)
+    }, 100)
   }
   const simulateSYNFloodVisual = async () => {
     setPackets([])
@@ -71,38 +71,61 @@ const SYNFlood = () => {
 
   return (
   <>
-      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-4 mb-4">
-        <div>
-          <p className="font-bold">What is a SYN?</p>
-          <p>
-            A <strong>SYN</strong> (synchronize) packet is the first step in establishing a TCP connection. 
-            The client sends it to the server to say: “I want to start a conversation.”
-          </p>
-        </div>
-
-        <div>
-          <p className="font-bold">What is a SYN-ACK?</p>
-          <p>
-            A <strong>SYN-ACK</strong> is the server’s reply to the client’s SYN. 
-            It acknowledges the request and sends back its own SYN: “Got it. I’m ready to talk too.”
-          </p>
-        </div>
-
-        <div>
-          <p className="font-bold">What is an ACK?</p>
-          <p>
-            An <strong>ACK</strong> (acknowledgment) is the final step. 
-            The client replies with this to confirm the handshake: “Cool, we’re connected now.”
-          </p>
-        </div>
+    <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-4 mb-4">
+      <div>
         <p className="font-bold">What is a SYN Flood?</p>
         <ul className="list-disc list-inside text-sm">
           <li>It’s a type of DoS attack that sends many SYN requests to a server.</li>
-          <li>The attacker never completes the handshake, leaving connections "half-open".</li>
+          <li>The attacker never completes the TCP handshake, leaving connections "half-open".</li>
           <li>This exhausts server resources, making it unavailable to legitimate users.</li>
           <li>It is like leaving a person on red when they were conversing with you</li>
         </ul>
-      </div>    
+      </div>      
+      <div>
+        <p className="font-bold">What is a TCP connection?</p>
+        <p>
+          A <strong>TCP connection</strong> is a reliable way for two computers to communicate over a network. 
+          It is established using a 3-step process called the TCP 3-Way Handshake:          
+        </p>
+        <ul className="list-decimal list-inside text-sm mt-2">
+          <li><strong>SYN:</strong> The client sends a request to start the connection.</li>
+          <li><strong>SYN-ACK:</strong> The server acknowledges the request and responds.</li>
+          <li><strong>ACK:</strong> The client confirms, and the connection is established.</li>
+        </ul>         
+
+        <p className="text-sm mt-2">
+          After this handshake, both devices can exchange data reliably. 
+          A SYN flood disrupts this process by spamming SYN requests but never sending the final ACK, 
+          which overwhelms the server’s capacity to handle new connections.
+        </p>        
+      </div>          
+      <div>
+        <p className="font-bold">How to prevent SYN Flooding?</p>
+        <p>
+          Preventing SYN Flooding is important due to the nature of this attack. It sends a massive amount of
+          fake connection request to a server and the server has to respond back which would consume memory and CPU resources.
+          This would consequently slow down these networks and could cause them to become unusuable or unresponsive. Downtime of websites, apps
+          and APIs would disrupt business - lost of customers, revenue and public's trust.
+          <br></br>
+          Some prevention methods include:
+        </p>
+        <ul className="list-disc list-inside mt-2 space-y-1">
+          <li>
+            <strong> SYN Cookies: </strong> Enabling SYN cookies prevents the server from allocating resources until the TCP handshake is completed
+          </li>
+          <li>
+            <strong> Firewall Rules: </strong> Limit the amount of half open connections from a single IP address
+          </li>
+
+          <li> 
+            <strong> TCP connection timeout:</strong> Reduce how long the server waits for the handshake to complete. 
+          </li>
+          <li>
+            <strong> Cloud based DDos Protection:</strong> Services like cloudflare, AWS shield detect and mitigate SYN floods
+          </li>
+        </ul>
+      </div>
+    </div>    
     <div className="w-full text-center my-4">
       <button
         onClick={simulateSYNFloodVisual}

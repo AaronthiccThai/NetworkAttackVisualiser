@@ -56,6 +56,13 @@ const PortScan = () => {
             It is a process of probing a computer network to determine which ports are open and potentially accepting connections.
             It involves sending packets to multiple ports on a target system and then analysing its response to identify open, closed or filtered ports.
           </p>
+          <p className="font-bold">What is Port?</p>
+          <p>
+            A port is a virtual point where network connections start and end. 
+            Ports are used to identify specific processes or services running on a device. Each port is associated with a unique number, 
+            ranging from 0 to 65535.
+            For example, port 80 is typically used for HTTP (web) traffic, and port 443 is used for HTTPS (secure web) traffic.
+          </p>      
           <p className="mt-2">
             Each port can respond in one of the following ways:
           </p>
@@ -77,6 +84,23 @@ const PortScan = () => {
             Port scanning is commonly used by security professionals to identify and secure vulnerable entry points, 
             but it is also used by attackers during the reconnaissance phase of a cyberattack.
           </p>
+
+          <p className="font-bold">How to prevent Port Scanning?</p>
+
+          <p>
+            While we can't completely stop port scanning, there are several strategies to reduce their effectiveness and occurence:
+          </p>
+          <ul className="list-disc list-inside ml-4">
+            <li><strong>Use Firewalls:</strong> Configure firewalls to block or filter unused ports and 
+              restrict access based on IP address or traffic type.
+            </li>
+            <li><strong>Disable Unused Services:</strong> Turn off services that aren’t 
+              necessary to reduce the number of open ports.
+            </li>
+            <li><strong>Enable Port Knocking:</strong> A technique where ports remain closed 
+              unless a user sends a specific sequence of packets to “unlock” them.
+            </li>
+          </ul>                
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 mt-6">
