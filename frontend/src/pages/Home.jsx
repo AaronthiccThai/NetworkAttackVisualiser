@@ -7,8 +7,8 @@
           Aaron Thai - z5481487, COMP6841 25T2
         </div>
         <div className="text-center mt-24 text-black">
-          <h1 className="text-3xl font-bold mb-4">Network Packet Visualiser</h1>
-          <h2 className="mb-4">This is a simple network packet visualiser that showcases what some network attacks look like.</h2>
+          <h1 className="text-3xl font-bold mb-4">Network Attack Visualiser</h1>
+          <h2 className="mb-4">This is a simple network attack visualiser that showcases what some network attacks look like.</h2>
           <h2 className="mb-4">
             Network attacks are important to understand as they are significant threat to individuals and organisations.
           </h2>

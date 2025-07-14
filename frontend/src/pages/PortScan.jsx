@@ -190,7 +190,7 @@ const PortScan = () => {
                     )}
                   </>
                 ) : (
-                  <p className="text-gray-600">⏳ Not scanned yet</p>
+                  <p className="text-gray-600"> Not scanned yet</p>
                 )}
                 {result && <Xarrow start="attacker" end={id} />}
               </div>
