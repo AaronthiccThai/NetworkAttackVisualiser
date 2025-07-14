@@ -18,8 +18,9 @@ const PortScan = () => {
   // Can do something like a protected port where when user tries to send packet to this it gets reflected?
   const [packets, setPackets] = useState([])
   const predefinedPorts = [21, 22, 23, 80, 1234];
-
+  const [isScanned, setScanned] = useState(false)
   const simulatePortScan = async() => {
+    setScanned(false)
     setPackets([])
     const res = await fetch("http://localhost:5000/simulate/port-scan", {
       method: "POST",
@@ -28,9 +29,11 @@ const PortScan = () => {
     const data = await res.json()
     setPackets(data.packet)
     console.log(data.packet)
+    setScanned(true)
   }
   const clear = () => {
     setPackets([])
+    setScanned(false)
   }
   const getPortClass = (result) => {
     if (!result) return "border-gray-300 bg-gray-100";
@@ -136,7 +139,55 @@ const PortScan = () => {
                 {result ? (
                   <>
                     <p><strong>Status:</strong> {result.status}</p>
-                    <p><strong>Info:</strong> {result.info}</p>
+                    {result.status === 'open' && port === 21 && (
+                      <button
+                        onClick={() => alert("Password: admin123")}
+                        className="mt-2 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm"
+                      >
+                        Attempt FTP Bruteforce
+                      </button>
+                    )}
+
+                    {result.status === 'open' && port === 22 && (
+                      <button
+                        onClick={() => alert("SSH Key: ssh-rsa DAzcBdrAvbCasdBASsfsdgG")}
+                        className="mt-2 bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600 text-sm"
+                      >
+                        Find SSH Key
+                      </button>
+                    )}
+
+                    {result.status === 'open' && port === 80 && (
+                      <form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          alert("username=admin password=1234");
+                        }}
+                        className="mt-2"
+                      >
+                        <input
+                          type="text"
+                          placeholder="Enter username"
+                          className="border p-1 text-sm mr-2"
+                        />
+                        <input
+                          type="password"
+                          placeholder="Enter password"
+                          className="border p-1 text-sm mr-2"
+                        />
+                        <button type="submit" className="bg-green-600 text-white px-2 py-1 rounded text-sm">
+                          Submit
+                        </button>
+                      </form>
+                    )}               
+
+                    {result.status === 'filtered' && (
+                      <h2 className="text-red-800">Connection timed out</h2>
+                    )}     
+
+                    {result.status === 'closed' && (
+                      <h2 className="text-red-800"> Connection refused</h2>
+                    )}
                   </>
                 ) : (
                   <p className="text-gray-600">⏳ Not scanned yet</p>

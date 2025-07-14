@@ -6,7 +6,6 @@ const SYNFlood = () => {
   const [serverConnections, setServerConnections] = useState([])
   const [attackLog, setAttackLog] = useState([])
   const [connectionData, setConnectionData] = useState()    
-
   const generateMimicData = () => {
     const fullData = []
     // MAGIC NUMBERS GOOD CODING PRACTICE IS TO INITIALISE
@@ -25,7 +24,7 @@ const SYNFlood = () => {
       setConnectionData(prev => [...(prev || []), fullData[index]])
       index++
       if (index >= fullData.length) clearInterval(interval)
-    }, 100)
+    }, 200)
   }
   const simulateSYNFloodVisual = async () => {
     setPackets([])
@@ -187,10 +186,127 @@ const SYNFlood = () => {
           </LineChart>
         </ResponsiveContainer>
       </div>  
-
-    
+          
     </div>    
+    <InteractivePanel/>
+
   </>    
   )
 }
+
+const InteractivePanel = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasSYNFlood, sethasSYNFlood] = useState(false);
+
+  const handleStartFlood = () => {
+    sethasSYNFlood(true);
+  };
+
+  const handleStopFlood = () => {
+    sethasSYNFlood(false);
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    if (hasSYNFlood) {
+      setTimeout(() => {
+        alert("Registered successfully!");
+        setIsSubmitting(false);
+        setUsername("");
+        setPassword("");
+      }, 20000);
+    } else {
+      setTimeout(() => {
+        alert("Registered successfully!");
+        setIsSubmitting(false);
+        setUsername("");
+        setPassword("");
+      }, 2000);
+    } 
+  };
+
+  const handleReset = () => {
+    setUsername("");
+    setPassword("");
+    setIsSubmitting(false);
+    sethasSYNFlood(false);
+  };
+
+  return (
+    <>
+      <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
+        🚀 Interactive Feature
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center my-10 px-4 max-w-5xl mx-auto">
+        <div className="bg-red-100 p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-4 text-red-800">🧑‍💻 Attacker</h2>
+          <button
+            onClick={handleStartFlood}
+            className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded mr-2"
+          >
+            Start SYN Flooding
+          </button>
+          <button
+            onClick={handleStopFlood}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded"
+          >
+            Stop SYN Flooding
+          </button>
+        </div>
+
+        <div className="bg-green-100 p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-4 text-green-800">🧍 User</h2>
+          <form onSubmit={handleRegister}>
+            <input
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              disabled={isSubmitting}
+              className="border p-1 text-sm mr-2 mb-2"
+            />
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={isSubmitting}
+              className="border p-1 text-sm mr-2 mb-2"
+            />
+            <div className="space-x-2 mt-2">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`px-3 py-1 rounded text-sm text-white ${
+                  isSubmitting
+                    ? "bg-gray-400"
+                    : "bg-green-600 hover:bg-green-700"
+                }`}
+              >
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
+              <button
+                type="button"
+                onClick={handleReset}
+                className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+          {hasSYNFlood && (
+            <p className="text-sm text-red-600 mt-2 italic">
+              ⚠️ There is a lot of traffic. Please be patient.
+            </p>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
+
 export default SYNFlood
