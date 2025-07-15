@@ -161,7 +161,7 @@ const PortScan = () => {
                       <form
                         onSubmit={(e) => {
                           e.preventDefault();
-                          alert("username=admin password=1234");
+                          alert("username=admin password=1234 sessionToken=AfkgGhjkzx");
                         }}
                         className="mt-2"
                       >

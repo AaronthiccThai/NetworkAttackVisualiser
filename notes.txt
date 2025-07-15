@@ -8,13 +8,29 @@ DNS Tunneling
 4. Attacker decodes query & sends DNS response with command →
 5. Malware receives command via DNS response →
 6. Malware executes and repeats (covert channel established)
-
 Each of these are a 'block' in frontend
 
+- Also explain DNS, DNS queries easily
+- Prevention - monitor traffic/network, firewall, restriction, inspection, actual testing by self hacking, limiting rate of DNS requests,
+  perhaps use machine learning
+- Bibliography
+  https://www.paloaltonetworks.com.au/cyberpedia/what-is-dns-tunneling
+  https://www.akamai.com/glossary/what-is-dns-tunneling
+  https://www.brightsec.com/blog/dns-tunneling/  
 SYNFlood
 -A SYN flood is a type of Denial of Service (DoS) attack that overwhelms a server by sending many half-open TCP connections.
+- Explain what SYN,ACK, SYN-ACK, TCP cnnection summarisation and prevention oof SYN flood
+- Bibliography:
+  https://www.indusface.com/blog/what-is-syn-synchronize-attack-how-the-attack-works-and-how-to-prevent-the-syn-attack/
+  https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake
+
 PortScan
 - A port scan is a technique used to probe a server or network host for open ports and discover which services are running.
+- Explain port - connection point between two network - identify certain process - DONE
+- Explain prevention - simple methods such as firewall, disable unused ports, and port knocking
+- Bibliography
+  https://www.fortinet.com/resources/cyberglossary/what-is-port-scan
+
 
 Potential features:
 pause feature inside each page

@@ -259,7 +259,8 @@ const InteractivePanel = () => {
         </div>
 
         <div className="bg-green-100 p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4 text-green-800">🧍 User</h2>
+          <h2 className="text-xl font-semibold mb-4 text-green-800">🧍User</h2>
+          <label> Register </label>
           <form onSubmit={handleRegister}>
             <input
               type="text"
