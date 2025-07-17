@@ -6,6 +6,14 @@ such as SYN floods, Port scanning and DNS tunneling. It helps users regardless o
 at the packet level and how network devices respond. This visualisation tool is useful for educational purposes, especially in learning 
 cybersecurity concepts, severity and consequences of cyber attacks and mitigation techniques.
 
+## Context
+Nowadays, cyberattacks are becoming more sophiscated, from obscuring phising links to using AI to anaylse massive bulks of data for trends/patterns.
+As the volume and complexity of attacks increase, so does the need for tools that help individual and organisation regardless of background to understand 
+and defend against them. This project was developed as part of my COMP6841 assignment. My project aims to emulate a multitude of network attacks so that 
+users can connect theoretical concepts with real world network activity. My simulation includes network attacks such as DNS tunneling, port scanning 
+and SYN floods which are amongst the most common attacks out there. Through this educational simulation, users can build a stronger conceptual 
+and practical understanding of network threats.
+
 ## Installation
 
 ### Method 1
@@ -25,9 +33,30 @@ install Flask - reference start.sh)
 Then run frontend using npm run dev, and run backend using python3 run.py.
 
 
+## Misc/Blog
+
+### Implementation
+
+My project is built using a full-stack web development approach utilising the following tech stack:
+  Frontend  - React, using javascript
+  Backend - Flask, using python
+  Styling: Tailwind
+
+I used React for easy and dynamic front end interactions and real time visual feedback. Flask was used for handling data being sent from the backend. I’ve had some familiarity utilising these two tech stacks, so this was my choice. I used Tailwind for my styling since it was flexible for all viewports and also reduces the amount of files I’d have to create.
+
+The main features I’ve aimed to implement was the visualisation of the network attacks, and how packets are utilised within these network attacks. The showcase of the packets were significantly simplified so that all users can easily understand. Below are some of my page prototypes of the attack and my thought process behind it.
+![dnstunnel](images/dnstunnel-yellow.png)
+![portscan](images/portscan.png)
+![synflood](images/synflood-yellow.png)
 
 ## Bibliography
+https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake
 https://www.akamai.com/glossary/what-is-dns-tunneling
 https://www.paloaltonetworks.com.au/cyberpedia/what-is-dns-tunneling
 https://www.brightsec.com/blog/dns-tunneling/
 https://www.fortinet.com/resources/cyberglossary/what-is-port-scan
+https://www.paloaltonetworks.com.au/cyberpedia/what-is-a-port-scan
+https://www.w3schools.com/cybersecurity/cybersecurity_mapping_port_scanning.php
+https://www.cloudflare.com/learning/ddos/syn-flood-ddos-attack/
+https://www.akamai.com/glossary/what-are-syn-flood-ddos-attacks
+https://www.f5.com/glossary/syn-flood-attack

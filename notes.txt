@@ -13,7 +13,6 @@ Each of these are a 'block' in frontend
 - Also explain DNS, DNS queries easily
 - Prevention - monitor traffic/network, firewall, restriction, inspection, actual testing by self hacking, limiting rate of DNS requests,
   perhaps use machine learning
-- Bibliography
   https://www.paloaltonetworks.com.au/cyberpedia/what-is-dns-tunneling
   https://www.akamai.com/glossary/what-is-dns-tunneling
   https://www.brightsec.com/blog/dns-tunneling/  
@@ -24,7 +23,6 @@ Each of these are a 'block' in frontend
 SYNFlood
 -A SYN flood is a type of Denial of Service (DoS) attack that overwhelms a server by sending many half-open TCP connections.
 - Explain what SYN,ACK, SYN-ACK, TCP cnnection summarisation and prevention oof SYN flood
-- Bibliography:
   https://www.indusface.com/blog/what-is-syn-synchronize-attack-how-the-attack-works-and-how-to-prevent-the-syn-attack/
   https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake
 - Idea is to showcase perhaps traffic of a website using a graph or smth, and then implement some interactin that mimics slow website i.e register not working
@@ -34,9 +32,8 @@ PortScan
 - Explain prevention - simple methods such as firewall, disable unused ports, and port knocking
 - Idea was to have multiple ports, user can be in perspective of attacker and scan these ports
   - Then, ports that are open can be followed up with attack
-- Bibliography
   https://www.fortinet.com/resources/cyberglossary/what-is-port-scan
-
+  https://www.paloaltonetworks.com.au/cyberpedia/what-is-a-port-scan
 
 Potential features:
 pause feature inside each page
