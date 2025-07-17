@@ -92,7 +92,7 @@ const SYNFlood = () => {
           <li><strong>ACK:</strong> The client confirms, and the connection is established.</li>
         </ul>         
 
-        <p className="text-sm mt-2">
+        <p className="text-base mt-2">
           After this handshake, both devices can exchange data reliably. 
           A SYN flood disrupts this process by spamming SYN requests but never sending the final ACK, 
           which overwhelms the server’s capacity to handle new connections.
