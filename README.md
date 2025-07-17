@@ -54,10 +54,10 @@ and severity, and prevention or mitigation techniques. These information were st
 Below the information I would have a simple visualisation whether its a flow based diagram or a graph, these would assist in demonstrating how the attack works.
 And finally at the bottom or inside the visualisation would contain a simple interaction activity which aims to reinforce the theory concept that was above it.
 
-Some technical challenges lied in the visual implementation of DNS tunnel and the SYN flood. Within the DNS tunneling page, the most technically challenging aspect of this prototype was implementing progressive animations, where a packet would travel through each phase, one by one. This required me to keep track of the step and index of each phase, and then incrementing the index every so many seconds. Initially, I've consulted youtube videos and stackoverflow, however, either they were overcomplex using different libraries or they didn't meet the requirement I had in mine.
-With that
-
 ### Reflection
+Throughout this project, I developed a deeper understanding of how common network attacks like DNS tunneling, SYN floods, and port scanning operate at both a conceptual and packet level.
+Initially, I had some knowledge about how network operates (from COMP3331), however, there wasn't any delving into network attacks. From this project, I've not only better my understanding
+of these network attacks, but I also further refined my frontend skills. 
 
 ## Bibliography
 https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake

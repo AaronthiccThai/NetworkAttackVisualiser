@@ -99,6 +99,14 @@ const SYNFlood = () => {
         </p>        
       </div>          
       <div>
+        <p className="font-bold">Consequences of SYN flood?</p>
+        <p>
+          SYN Flood is a highly dangerous and severe network attack. It can render critical services unavailable. 
+          If unmitigated, this can severely disrupt business operations or public facing services. It does this by exhausting
+          all the server's resources, and could slowdown or crash the server. As a result, there would be damage to the company's reputation and finance.
+        </p>
+      </div>       
+      <div>
         <p className="font-bold">How to prevent SYN Flooding?</p>
         <p>
           Preventing SYN Flooding is important due to the nature of this attack. It sends a massive amount of

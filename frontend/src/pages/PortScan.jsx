@@ -58,6 +58,8 @@ const PortScan = () => {
           <p>
             It is a process of probing a computer network to determine which ports are open and potentially accepting connections.
             It involves sending packets to multiple ports on a target system and then analysing its response to identify open, closed or filtered ports.
+            Think of it as a robber walking around the neighbour checking for unlocked doors. If there is an unlocked door, they can prepare to enter the house
+            and start a robbery.
           </p>
           <p className="font-bold">What is Port?</p>
           <p>
@@ -88,6 +90,12 @@ const PortScan = () => {
             but it is also used by attackers during the reconnaissance phase of a cyberattack.
           </p>
 
+          <p className="font-bold">Consequences of being Port scanned?</p>
+          <p> The severity of a Port scan is between low to medium. Port scanning alone doesn’t cause damage, but it’s an important 
+            early stage attack that leads to more serious threats if not monitored or blocked. Port scanning reveals open ports, running services
+            and potential vulnerabilities. Hackers can then prepare for more exploits such as bruteforcing password, delivering malware
+            on these open ports depending on its response.
+          </p>
           <p className="font-bold">How to prevent Port Scanning?</p>
 
           <p>

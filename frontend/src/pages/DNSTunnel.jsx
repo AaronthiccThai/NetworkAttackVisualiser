@@ -109,7 +109,16 @@ const DNSTunnel = () => {
             its IP address, which is what it needs to connect. So it would send a DNS query to ask for the IP address of the website.
             Think of a DNS query looking up a user in a database based on their birthdate.
           </p>
-        </div>                  
+        </div>              
+        <div>
+          <p className="font-bold">Consequences of DNS tunneling?</p>
+          <p>
+            A DNS tunneling attack is a highly dangerous attack that all organisations and individuals should be prepared for.
+            This is because it is stealthy, hard to detect, and can result in serious data breaches or persistent system compromise.
+            There could be exfiltration of sensitive data and creation of undetectable communication backdoors which can result in the network being hijacked.
+          
+          </p>
+        </div>                            
         <div>
           <p className="font-bold">How can DNS tunneling be prevented?</p>
           <p>
