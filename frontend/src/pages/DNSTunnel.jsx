@@ -2,7 +2,6 @@ import { useState  } from 'react';
 import Xarrow from 'react-xarrows';
 
 const DNSTunnel = () => {
-  const [packets, setPackets] = useState([])
   const [currentStep, setCurrentStep] = useState(-1)
   const [animationInterval, setAnimationInterval] = useState(null)
   const [hoveredIndex, setHoveredIndex] = useState(null)
@@ -56,16 +55,6 @@ const DNSTunnel = () => {
 
   const simulateDNSTunnel = async () => {
     setCurrentStep(-1)
-    setPackets([])
-    const res = await fetch("http://localhost:5000/simulate/dns-tunnel", {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    })
-
-    const data = await res.json()
-    const receivedPackets = data.packets
-    setPackets(receivedPackets)
-    console.log(receivedPackets)
     let step = 0
     setCurrentStep(0);     
     const interval = setInterval(() => {
@@ -84,7 +73,6 @@ const DNSTunnel = () => {
   const clear = () => {
     if (animationInterval) clearInterval(animationInterval)
     setCurrentStep(-1)
-    setPackets([])
     setAttackerDomain("");
     setCommandInput("");
     setVictimSite("");
@@ -188,6 +176,10 @@ const DNSTunnel = () => {
           Let the simulation run completely before resetting to ensure accurate results.
         </p>      
       </div>      
+      <div className="text-4xl font-bold text-gray-800 mb-4"> 🧠 Attack log</div>
+      <div className="mt-4 p-4 text-2xl bg-gray-100 rounded text-gray-700 italic">
+        {currentStep >= 0 ? stepMessages[currentStep] : "Press start to begin simulation"}
+      </div>       
       <div className="grid grid-cols-3 gap-4 text-center my-10">
         {[
           '🧑‍💻 Attacker',
@@ -242,10 +234,7 @@ const DNSTunnel = () => {
           }}    
         />
       )}
-      <div className="text-4xl font-bold text-gray-800 mb-4"> 🧠 Attack log</div>
-      <div className="mt-4 p-4 text-2xl bg-gray-100 rounded text-gray-700 italic">
-        {currentStep >= 0 ? stepMessages[currentStep] : "Press start to begin simulation"}
-      </div>      
+     
       <br></br>
 
       <InteractivePanel
@@ -377,13 +366,13 @@ const InteractivePanel = ({
               onChange={(e) => setVictimSite(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && victimSite.trim()) {
-                  const trimmed = victimSite.trim();
+                  const site = victimSite.trim();
 
-                  if (trimmed === attackerDomain) {
+                  if (site === attackerDomain) {
                     setWasAttacked(true);
                   } else {
                     setWasAttacked(false);
-                    window.open(`https://${trimmed}`, '_blank', 'noopener,noreferrer');
+                    window.open(`https://${site}`, '_blank', 'noopener,noreferrer');
                   }
                 }
               }}             

@@ -16,7 +16,15 @@ interactive packet visualiser, using generated packets rather than actual packet
 simulate_routes = Blueprint('simulate', __name__)
 main_routes = Blueprint('main', __name__)
 
+"""
+    Creates a fake packet that simulates the actual packet
+    Params
+        Protocol: TCP/UDP
+        Src IP: ip from where packet is being  sent
+        Dst IP: destination of ip
+        Info: some other misc info
 
+"""
 def generate_packet(protocol, src_ip, dst_ip, info):
     return {
         "timestamp": time.time(),
@@ -28,19 +36,32 @@ def generate_packet(protocol, src_ip, dst_ip, info):
 
 
 # --- Simulate Routes ---
+
+"""
+    Simulates a SYN Flood by sending packets over to a dest IP from different SRC ip
+    We can do this by creating fake packets, and generating random source ports, 
+    then sending it over to one destination prot
+"""
 @simulate_routes.route('/simulate/syn-flood', methods=['POST'])
 def simulate_syn_flood():
-    src_ip = '192.168.0.100'
     dst_ip = '192.168.0.1'
     packets = []
 
     for _ in range(20):
-        spoofed_ip = f"192.168.0.{random.randint(2, 254)}"
-        packet = generate_packet("TCP", spoofed_ip, dst_ip, "SYN")
+        src_ip = f"192.168.0.{random.randint(2, 254)}"
+        packet = generate_packet("TCP", src_ip, dst_ip, "SYN")
         packets.append(packet)
 
     return jsonify({"status": "SYN flood simulated", "packets": packets}), 200
 
+
+"""
+    Simulates a Port Scan by sending packets towards hardcoded ports
+    We set 5 types of port each with its own meaning
+    Then we utilise our generate packet function to send it over to each port with the status in each
+    Then what we can do with the port is handled from frontend since it easier
+
+"""
 @simulate_routes.route('/simulate/port-scan', methods=['POST'])
 def simulate_port_scan():
     src_ip = '10.0.0.5'
@@ -79,21 +100,4 @@ def simulate_port_scan():
     return jsonify({"status": "Port scan simulated", "packet": packets}), 200
 
 
-# Dont need this i think
-@simulate_routes.route('/simulate/dns-tunnel', methods=['POST'])
-def simulate_dns_tunnel():
-    src_ip = '172.16.0.2'
-    dst_ip = '8.8.8.8'
-    domains = [
-        "evil.tunnel.attacker.com",
-        "veryevil.tunnel.attacker.com",
-        "123.tunnel.attacker.com"
-    ]
-    packets = []
-
-    for domain in domains:
-        packet = generate_packet("DNS", src_ip, dst_ip, f"Query: {domain}")
-        packets.append(packet)
-
-    return jsonify({"status": "DNS tunnel simulated", "packets": packets}), 200
 
