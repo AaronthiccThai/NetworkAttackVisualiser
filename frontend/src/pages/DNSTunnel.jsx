@@ -2,6 +2,8 @@ import { useState  } from 'react';
 import Xarrow from 'react-xarrows';
 
 const DNSTunnel = () => {
+  // To do the animation, we need to keep track of index
+  // 
   const [currentStep, setCurrentStep] = useState(-1)
   const [animationInterval, setAnimationInterval] = useState(null)
   const [hoveredIndex, setHoveredIndex] = useState(null)
@@ -35,6 +37,10 @@ const DNSTunnel = () => {
     "Communication channel between the attacker and the comprised system. Attackers use this server to send command and receive data back",
     "The victim or comprised system which is connected via the Command and Control (C2)"
   ]
+  // These inputs are used for the interactivity
+  // User wants to be able to create their own fake domain, bypass it and upon entering this website, comprise victim's pc
+  // We can simulate this behaviour externally without the underlying component but just having a state for attack domain, commandinput, victim input and safe domain
+  // When victim does input this dangerous domain, we need to let the attacker know the attack was successful and they can then fetch dota using command input
   const [attackerDomain, setAttackerDomain] = useState("")
   const [commandInput, setCommandInput] = useState("")
   const [victimSite, setVictimSite] = useState("")

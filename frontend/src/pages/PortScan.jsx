@@ -18,9 +18,7 @@ const PortScan = () => {
   // Can do something like a protected port where when user tries to send packet to this it gets reflected?
   const [packets, setPackets] = useState([])
   const predefinedPorts = [21, 22, 23, 80, 1234];
-  const [isScanned, setScanned] = useState(false)
   const simulatePortScan = async() => {
-    setScanned(false)
     setPackets([])
     const res = await fetch("http://localhost:5000/simulate/port-scan", {
       method: "POST",
@@ -29,11 +27,9 @@ const PortScan = () => {
     const data = await res.json()
     setPackets(data.packet)
     console.log(data.packet)
-    setScanned(true)
   }
   const clear = () => {
     setPackets([])
-    setScanned(false)
   }
   const getPortClass = (result) => {
     if (!result) return "border-gray-300 bg-gray-100";
@@ -136,7 +132,14 @@ const PortScan = () => {
           </button>            
         </div>
 
-        {/* Ports */}
+        {/* Ports 
+          Each port is associated with its functionality, hence the type of attack 
+          Port 21: used for transferring  file
+          Port 22: provides encrypted remote login
+          Port 23: remote login not secure
+          Port 80: accessing website
+          Port 1234: Other
+        */}
         <div className="flex flex-col gap-4">
           {predefinedPorts.map((port) => {
             const result = packets.find((p) => p.port === port);

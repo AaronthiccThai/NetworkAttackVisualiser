@@ -20,12 +20,31 @@ Each of these are a 'block' in frontend
 - Idea is to showcase different phsae of attacksand summarise what is happening
   - Also add how users can simulate DNS tunneling by creating their own malicious domain, then having someone input this evil domain.Then 
   user can fetch the victim's info or smth.
+
+  Consequences
+    Data exfiltration from internal networks (e.g., credentials, system data).
+    Command & control (C2) channels established undetected, allowing persistent malware operation.
+    Hard to detect with traditional firewalls.
+  Prevention
+  Block known tunneling domains.
+  DNS traffic rate limiting.
+  More etcetc.
 SYNFlood
 -A SYN flood is a type of Denial of Service (DoS) attack that overwhelms a server by sending many half-open TCP connections.
 - Explain what SYN,ACK, SYN-ACK, TCP cnnection summarisation and prevention oof SYN flood
   https://www.indusface.com/blog/what-is-syn-synchronize-attack-how-the-attack-works-and-how-to-prevent-the-syn-attack/
   https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake
 - Idea is to showcase perhaps traffic of a website using a graph or smth, and then implement some interactin that mimics slow website i.e register not working
+
+  Consequences
+    Server becomes unresponsive to legitimate traffic.
+    Real users experience lag, errors, or full outages.
+    May require server reboot or scaling infrastructure.
+  Prevention
+    Syn cookies
+    Firewall rules
+    tcp connection timeout
+    Cloud based DDos protection
 PortScan
 - A port scan is a technique used to probe a server or network host for open ports and discover which services are running.
 - Explain port - connection point between two network - identify certain process - DONE
@@ -34,6 +53,17 @@ PortScan
   - Then, ports that are open can be followed up with attack
   https://www.fortinet.com/resources/cyberglossary/what-is-port-scan
   https://www.paloaltonetworks.com.au/cyberpedia/what-is-a-port-scan
+
+  Consequences
+    Reveals vulnerable services to attacker 
+    Often a precursor to exploits or lateral movement.
+    Might allow unauthorised access, data theft, or DoS.
+  Prevention
+    Firewalls - improve itmaybe
+    Disable Unused Services
+    Port knocking - secret code or something to connect to port
+
+
 
 Potential features:
 pause feature inside each page

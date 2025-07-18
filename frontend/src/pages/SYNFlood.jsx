@@ -2,6 +2,10 @@ import { useState  } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer} from 'recharts';
 
 const SYNFlood = () => {
+  // We are flooding a server with packets so we need to store packets that is coming from backene
+  // Also require displaying the attack log and what is happening with the server i.e how its responding
+  // We can just store array states for storing the packets and the server connections since there are  multiple packets and connections
+  // For the graph component, we can just have mimic traffic - initially it is low, then it spikes high, stays there for a bit and starts to go down
   const [packets, setPackets] = useState([])
   const [serverConnections, setServerConnections] = useState([])
   const [attackLog, setAttackLog] = useState([])
@@ -201,7 +205,10 @@ const SYNFlood = () => {
   </>    
   )
 }
-
+// Idea is to have user reigster be slowed down when there is a synflood going on
+// Obvious states we require are username and password - we just store it and aren'tdo ing anyhting  with it
+// We also need to keep track of whether a syn flood has occurred so we can stop it, which is done with a boolean state
+// Also need to disable input when user has registered to prevent weirdthings from occurring - b oolean state
 const InteractivePanel = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -226,14 +233,14 @@ const InteractivePanel = () => {
         setIsSubmitting(false);
         setUsername("");
         setPassword("");
-      }, 20000);
+      }, 15000);
     } else {
       setTimeout(() => {
         alert("Registered successfully!");
         setIsSubmitting(false);
         setUsername("");
         setPassword("");
-      }, 2000);
+      }, 1000);
     } 
   };
 
