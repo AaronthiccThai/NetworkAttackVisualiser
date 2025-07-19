@@ -1,0 +1,43 @@
+A 3-minute video or a 5-minute in-class presentation in which you showcase what you have done. 
+Your assessor will watch the video/presentation before they start reading your report and appendix,
+so this is your chance to make it clear on what you did and why, and show off the parts of which you are most proud. 
+The project videos will be shared after submissions have closed so everyone can see what all the other projects were. 
+If your video has anything personal or confidential in it please let us know.
+
+
+## Introduction
+
+Hi, my name is Aaron, zid 5481487, this is my project on simulating and visualising network attacks. 
+In this video, I’ll be walking you through what I built, how it works, and why I chose this direction.
+The goal of my project was to simulate common types of attacks such as SYNflood, DNS tunneling and PortScan
+and make their cocnepts visually understandable through a web based interface
+I wanted to create something educational, that could help users see what’s happening during an attack, rather than just reading about it.
+
+## What I built
+I built a somewhat full stack website (not deployed) where users can launch simulated attacks and see live visualisations, 
+for example how SYN flood decreases server's functionality, the phases of a DNS tunneling and the versatility of port scans.
+The backend doesn't contain that many lines of code, so it is mainly frontend code heavy. 
+Here we have the dashboard, very simple and minimalistic. 
+
+Then these buttons bring us to the attack pages. On the SYN Flood, there is a simple information page, 
+below it with the visualisations, and trend. Then below that is the interactivity which is one of the best features of this project.
+It allows users to experience both sides of an attack albeit very simple.
+
+On the DNS tunneling page, there is also an information section, and below that is a visualisation area which just shows the 
+phase of a  DNS tunneling attack. The interactivity here is also one of the best features of the website. Its functionality is similar to the 
+SYN flood, where the user can experience both side of an attack, except that the effect of being attacked and process of attacking is different.
+
+On the Portscan page, there  is an information section and a visualisation section. The interactivity is contained within the visualisation section
+and just showcases what the attackers can do after port scanning. This attack was a bit hard to do interactivity since its mainly a scouting method 
+before any attack actually happens (we can see this in wk 7 ctf where we essentially scanned ports).
+
+## Reflection/Challenges
+After doing this project, I've deepened my knowledge of these 3 network attacks. Not only did I learn how these attacks work at a packet level,
+I've learnt how the consequences of these network attacks, and preventative measures. Simulating attacks from both the attacker and victim's pov 
+ade me think like both a hacker and a defender. It gave me insight into what signs defenders should look for, like spikes in SYN requests, 
+abnormal DNS patterns, or port scans during off-hours.
+
+
+## Conclusion
+I’m really proud of how this project turned ou, I feel like it makes complex network behaviour more tangible and easier to grasp.
+Thanks for watching, I’m looking forward to seeing what everyone else built too!
