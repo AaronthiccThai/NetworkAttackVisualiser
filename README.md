@@ -16,6 +16,10 @@ and practical understanding of network threats.
 
 ## Installation
 
+### Common installation errors
+Your npm version is below v18. We can check this by doing node -v.
+You can install the new version using either "sudo npm install -g n" and then "sudo n latest" or install using 
+"nvm install versionplaceholder" and "nvm use versionplaceholder"
 ### Method 1
 This was done on WSL Unbuntu, so it is best to start it on the same subsystem
 
