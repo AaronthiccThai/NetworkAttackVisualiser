@@ -5,7 +5,7 @@ The project videos will be shared after submissions have closed so everyone can 
 If your video has anything personal or confidential in it please let us know.
 
 
-## Introduction
+Introduction
 
 Hi, my name is Aaron, zid 5481487, this is my project on simulating and visualising network attacks. 
 In this video, I’ll be walking you through what I built, how it works, and why I chose this direction.
@@ -13,10 +13,11 @@ The goal of my project was to simulate common types of attacks such as SYNflood,
 and make their cocnepts visually understandable through a web based interface
 I wanted to create something educational, that could help users see what’s happening during an attack, rather than just reading about it.
 
-## What I built
-I built a somewhat full stack website (not deployed) where users can launch simulated attacks and see live visualisations, 
+What I built
+I built a full stack website (not deployed) where users can launch simulated attacks and see live visualisations, 
 for example how SYN flood decreases server's functionality, the phases of a DNS tunneling and the versatility of port scans.
-The backend doesn't contain that many lines of code, so it is mainly frontend code heavy. 
+We all know that networt attacks are becoming more sophisticated so it is extremely important that everyone has some form of knowledge about it.
+
 Here we have the dashboard, very simple and minimalistic. 
 
 Then these buttons bring us to the attack pages. On the SYN Flood, there is a simple information page, 
@@ -28,16 +29,17 @@ phase of a  DNS tunneling attack. The interactivity here is also one of the best
 SYN flood, where the user can experience both side of an attack, except that the effect of being attacked and process of attacking is different.
 
 On the Portscan page, there  is an information section and a visualisation section. The interactivity is contained within the visualisation section
-and just showcases what the attackers can do after port scanning. This attack was a bit hard to do interactivity since its mainly a scouting method 
-before any attack actually happens (we can see this in wk 7 ctf where we essentially scanned ports).
+and just showcases what the attackers can do after port scanning. This attack was a bit hard to do interactivity since port scan is mainly a scouting method . 
+(we can see this in wk 7 ctf where we essentially scanned ports, then determined which port is open and that we can potentially attk). 
 
-## Reflection/Challenges
+Reflection/Challenges
+
 After doing this project, I've deepened my knowledge of these 3 network attacks. Not only did I learn how these attacks work at a packet level,
-I've learnt how the consequences of these network attacks, and preventative measures. Simulating attacks from both the attacker and victim's pov 
-ade me think like both a hacker and a defender. It gave me insight into what signs defenders should look for, like spikes in SYN requests, 
+I've learnt the consequences of these network attacks, and their preventative measures especially in a professional environment. Simulating attacks from both the attacker and victim's pov made me think like both a hacker and a defender. It gave me insight into what signs defenders should look for, like spikes in SYN requests, 
 abnormal DNS patterns, or port scans during off-hours.
 
 
-## Conclusion
+Conclusion
+
 I’m really proud of how this project turned ou, I feel like it makes complex network behaviour more tangible and easier to grasp.
-Thanks for watching, I’m looking forward to seeing what everyone else built too!
+I hope tha when you try out this simulation, that you can also perhaps depeen ur understanding of these 3 network attacks. 
