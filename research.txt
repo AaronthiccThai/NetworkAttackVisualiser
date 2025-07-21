@@ -9,7 +9,8 @@ DNS Tunneling
 5. Malware receives command via DNS response →
 6. Malware executes and repeats (covert channel established)
 Each of these are a 'block' in frontend
-
+- dns tunneling packet : src ip, dst ip, port, payload 
+- dns response packet: src ip, dst ip, payload
 - Also explain DNS, DNS queries easily
 - Prevention - monitor traffic/network, firewall, restriction, inspection, actual testing by self hacking, limiting rate of DNS requests,
   perhaps use machine learning
@@ -35,7 +36,10 @@ SYNFlood
   https://www.indusface.com/blog/what-is-syn-synchronize-attack-how-the-attack-works-and-how-to-prevent-the-syn-attack/
   https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake
 - Idea is to showcase perhaps traffic of a website using a graph or smth, and then implement some interactin that mimics slow website i.e register not working
-
+- attacker sends lots of tcp pacckets with syn flag to target server
+- target replies with syn ack to each - explain syn ack and syn
+- attacker never replies to the syn ack
+- typical syn packet: src ip, dst ip, tcp flag, seq num, dst port - we can simplify this to make it easier
   Consequences
     Server becomes unresponsive to legitimate traffic.
     Real users experience lag, errors, or full outages.
@@ -47,6 +51,8 @@ SYNFlood
     Cloud based DDos protection
 PortScan
 - A port scan is a technique used to probe a server or network host for open ports and discover which services are running.
+- sends specific packets, then the server responds back with syn ack
+- typical packet: src ip, dst ip, tcp flag, dst port, can be done in both tcp or udp however we don't mention this since it will make things more complex
 - Explain port - connection point between two network - identify certain process - DONE
 - Explain prevention - simple methods such as firewall, disable unused ports, and port knocking
 - Idea was to have multiple ports, user can be in perspective of attacker and scan these ports
