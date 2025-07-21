@@ -166,6 +166,9 @@ const DNSTunnel = () => {
         </div>
 
       </div>    
+      {/* Attack log that showcases what is happening inside the visualisation. We can just use the index
+        from the phases and then have an array of messages.
+      */}
       <div className="w-full text-center my-4">
         <button
           onClick={simulateDNSTunnel}
@@ -187,6 +190,11 @@ const DNSTunnel = () => {
       <div className="mt-4 p-4 text-2xl bg-gray-100 rounded text-gray-700 italic">
         {currentStep >= 0 ? stepMessages[currentStep] : "Press start to begin simulation"}
       </div>       
+      {/* 
+        We have an array of phases where we map over and then display individually
+        When it goes onto each phase, it should change colour to indicate what phase it is on
+        Users can also hover on each phase for a simple explanation of each phase
+      */}
       <div className="grid grid-cols-3 gap-4 text-center my-10">
         {[
           '🧑‍💻 Attacker',
@@ -218,6 +226,7 @@ const DNSTunnel = () => {
           
         ))}
       </div>
+      {/* The arrow showcasing a phase goign to the next phase with a label on it,label mightbe buggy  */}
       {currentStep >= 0 && currentStep < 5 && (
         <Xarrow
           start={`phase-${currentStep}`}
@@ -261,7 +270,16 @@ const DNSTunnel = () => {
     </>
   )
 }
+/*
+  On the interactive panel, we display on the lhs the attack panel rhs the victim panel
+  Between these would contain the sections for the domains and firewall
+  How it works is that 
+  - Attacker enters into attacker domain input
+  - Input puts it both into domain and firewall - acts as by passing it
+  - Victim can input any domain
+  - Once victim has inputted domain, there will be a flag to notify attacker and c2 will show up
 
+*/
 const InteractivePanel = ({
   attackerDomain,
   setAttackerDomain,
