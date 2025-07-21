@@ -89,6 +89,10 @@ const DNSTunnel = () => {
 
 
   // Idea is to have different sections, have a packet travel through each section to simulate
+  // In the first section, I'd have the background information of DNS attack
+  // Not too complex info since thats just info dumping
+  // Below that is the visualisation where users can see the phases of attack
+  // Then below that contains the interactivity component
   return (
     <>
       <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-4 mb-4">

@@ -46,6 +46,11 @@ const PortScan = () => {
     }
   };
 
+  // The layout is as follows: 
+  // We have background information of port scanning, should be simple 
+  // Below that is the visualisation 
+  // When user clicks on the start port scan, it changes the ports depending on status response
+  // Open ports can then be proceeded to be attacked
   return (
     <>
       <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-4 mb-4">
@@ -203,7 +208,8 @@ const PortScan = () => {
                 ) : (
                   <p className="text-gray-600"> Not scanned yet</p>
                 )}
-                {result && <Xarrow start="attacker" end={id} />}
+                
+                {result && <Xarrow start="attacker" end={id} label="Sending TCP/UDP packets" />}
               </div>
             );
           })}

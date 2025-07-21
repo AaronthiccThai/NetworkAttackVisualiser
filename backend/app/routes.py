@@ -46,7 +46,8 @@ def generate_packet(protocol, src_ip, dst_ip, info):
 def simulate_syn_flood():
     dst_ip = '192.168.0.1'
     packets = []
-
+    # We generate numerous amounts of packets toward the dst ip
+    # Only 20 else the simulation would go on for too long
     for _ in range(20):
         src_ip = f"192.168.0.{random.randint(2, 254)}"
         packet = generate_packet("TCP", src_ip, dst_ip, "SYN")
@@ -71,10 +72,11 @@ def simulate_port_scan():
 
     for port in ports:
         # Simulate response based on port
+        # This isnt needed probably, 
         if port == 21:
             info = f"Port {port} (FTP) open - vulnerable to brute force login"
         elif port == 22:
-            info = f"Port {port} (SSH) open - SSH-2.0-OpenSSH_7.4 - leaked SSH key"
+            info = f"Port {port} (SSH) open - SSH-2.0 - leaked SSH key"
         elif port == 23:
             info = f"Port {port} (Telnet) filtered - no response (timeout)"
         elif port == 80:
@@ -85,6 +87,7 @@ def simulate_port_scan():
             info = f"Port {port} unknown"
 
         packet = generate_packet("TCP", src_ip, dst_ip, info)
+        # We set the response back with the status of the port
         packet["port"] = port
         if "open" in info:
             packet["status"] = "open"
