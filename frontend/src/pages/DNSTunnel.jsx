@@ -141,24 +141,12 @@ const DNSTunnel = () => {
               a high volume of requests to specific domains, or irregular timing intervals. These may indicate tunneling activity.
             </li>
             <li>
-              <strong>Threat Intelligence & Domain Filtering:</strong> Use threat intelligence feeds to block access to known 
-              malicious or suspicious domains. Many DNS tunneling attacks rely on attacker-controlled domains that can be blacklisted.
-            </li>
-            <li>
               <strong>Implement DNS Firewalls:</strong> DNS firewall services (e.g., Cisco Umbrella, Cloudflare Gateway) 
               can intercept and inspect DNS queries and prevent communication with known malicious endpoints.
             </li>
             <li>
               <strong>Restrict External DNS Use:</strong> Ensure internal systems only use approved DNS servers. 
               Block outbound DNS requests to public or untrusted DNS resolvers that could be used for tunneling.
-            </li>
-            <li>
-              <strong>Deep Packet Inspection (DPI):</strong> DPI tools can analyse the contents of DNS queries 
-              to detect anomalies in payloads, such as embedded data or encoding schemes not typical of normal DNS usage.
-            </li>
-            <li>
-              <strong>Behavioral Analysis & Machine Learning:</strong> Advanced solutions leverage machine 
-              learning to detect tunneling based on subtle deviations in DNS usage behavior across time or users.
             </li>
             <li>
               <strong>Rate Limiting:</strong> Limit the rate of DNS requests per user or device to prevent large scale data exfiltration through DNS.
